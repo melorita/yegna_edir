@@ -18,9 +18,10 @@ import {
 
 interface LandingPageProps {
   onNavigateToAuth: (mode: 'REGISTER' | 'LOGIN') => void;
+  onNavigateToTerms?: () => void;
 }
 
-export const LandingPage: React.FC<LandingPageProps> = ({ onNavigateToAuth }) => {
+export const LandingPage: React.FC<LandingPageProps> = ({ onNavigateToAuth, onNavigateToTerms }) => {
   return (
     <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)] font-sans selection:bg-[var(--primary)] selection:text-white">
 
@@ -46,20 +47,20 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigateToAuth }) =>
             <a href="#how-it-works" className="hover:text-[var(--primary)] transition-colors">How It Works</a>
             <a href="#about" className="hover:text-[var(--primary)] transition-colors">About Our Edir</a>
             <button
-              onClick={() => onNavigateToAuth('LOGIN')}
-              className="hover:text-[var(--primary)] font-semibold transition-colors"
+              onClick={onNavigateToTerms}
+              className="hover:text-[var(--primary)] font-semibold transition-colors cursor-pointer"
             >
-              Sign In
+              Terms
             </button>
           </nav>
 
-          {/* Join Button */}
+          {/* Sign In Button */}
           <div>
             <button
-              onClick={() => onNavigateToAuth('REGISTER')}
-              className="text-sm font-medium rounded-[0.75rem] px-5 py-2.5 bg-[var(--primary)] text-[var(--primary-foreground)] hover:opacity-95 shadow-sm transition-all"
+              onClick={() => onNavigateToAuth('LOGIN')}
+              className="text-sm font-medium rounded-[0.75rem] px-5 py-2.5 bg-[var(--primary)] text-[var(--primary-foreground)] hover:opacity-95 shadow-sm transition-all cursor-pointer"
             >
-              Join the Edir
+              Sign In
             </button>
           </div>
         </div>
