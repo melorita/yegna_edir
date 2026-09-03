@@ -7,9 +7,10 @@ import { Eye, EyeOff, ShieldCheck, ArrowLeft, CheckCircle2, ScanLine, Camera, X,
 interface AuthPageProps {
   initialTab?: 'REGISTER' | 'LOGIN';
   onBack?: () => void;
+  onNavigateToTerms?: () => void;
 }
 
-export const AuthPage: React.FC<AuthPageProps> = ({ initialTab = 'REGISTER', onBack }) => {
+export const AuthPage: React.FC<AuthPageProps> = ({ initialTab = 'REGISTER', onBack, onNavigateToTerms }) => {
   const { login } = useAuth();
   const [mode, setMode] = useState<'REGISTER' | 'LOGIN'>(initialTab);
   const [showPassword, setShowPassword] = useState(false);
@@ -543,18 +544,34 @@ export const AuthPage: React.FC<AuthPageProps> = ({ initialTab = 'REGISTER', onB
 
                 {/* Bylaws Agreement Checkbox (Required) */}
                 <div className="p-3.5 bg-[var(--secondary)] border border-[var(--border)] rounded-xl">
-                  <label className="flex items-start gap-2.5 text-xs text-[var(--foreground)] cursor-pointer select-none">
+                  <div className="flex items-start gap-2.5 text-xs text-[var(--foreground)]">
                     <input
                       type="checkbox"
+                      id="bylaws-check"
                       required
                       checked={agreedBylaws}
                       onChange={(e) => setAgreedBylaws(e.target.checked)}
-                      className="w-4 h-4 mt-0.5 rounded text-[var(--primary)] focus:ring-[var(--primary)] accent-[var(--primary)] shrink-0"
+                      className="w-4 h-4 mt-0.5 rounded text-[var(--primary)] focus:ring-[var(--primary)] accent-[var(--primary)] shrink-0 cursor-pointer"
                     />
-                    <span className="leading-snug">
-                      I agree to the Edir bylaws and confirm that the information provided is accurate. <span className="text-[var(--primary)] font-bold">*</span>
-                    </span>
-                  </label>
+                    <label htmlFor="bylaws-check" className="leading-snug select-none cursor-pointer">
+                      I agree to the{' '}
+                      {onNavigateToTerms ? (
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            onNavigateToTerms();
+                          }}
+                          className="text-[var(--primary)] font-bold underline hover:opacity-80 inline cursor-pointer"
+                        >
+                          Edir bylaws
+                        </button>
+                      ) : (
+                        'Edir bylaws'
+                      )}{' '}
+                      and confirm that the information provided is accurate. <span className="text-[var(--primary)] font-bold">*</span>
+                    </label>
+                  </div>
                 </div>
 
                 {/* Create Account Submit Button */}
@@ -700,8 +717,20 @@ export const AuthPage: React.FC<AuthPageProps> = ({ initialTab = 'REGISTER', onB
           </div>
 
           {/* Footer note on right pane */}
-          <div className="mt-auto pt-4 border-t border-[var(--border)] text-center text-xs text-[var(--muted-foreground)]">
-            &copy; 2026 YegnaEdir. Preserving Ethiopian community mutual assistance.
+          <div className="mt-auto pt-4 border-t border-[var(--border)] text-center text-xs text-[var(--muted-foreground)] flex items-center justify-center gap-3">
+            <span>&copy; 2026 YegnaEdir. Preserving Ethiopian community mutual assistance.</span>
+            {onNavigateToTerms && (
+              <>
+                <span>•</span>
+                <button
+                  type="button"
+                  onClick={onNavigateToTerms}
+                  className="hover:text-[var(--primary)] transition-colors cursor-pointer underline"
+                >
+                  Terms
+                </button>
+              </>
+            )}
           </div>
 
         </div>
