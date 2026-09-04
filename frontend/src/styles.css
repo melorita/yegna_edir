@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Semantic Design Tokens */
+  --primary: oklch(0.36 0.083 155);            /* Edir green — headings, buttons, icons */
+  --accent: oklch(0.76 0.145 78);              /* Harvest gold — highlights, labels, icons */
+  --background: oklch(0.968 0.021 78);          /* Warm cream — page base */
+  --secondary: oklch(0.93 0.035 85);           /* Soft cream — alternating section backgrounds */
+  --card: oklch(0.99 0.008 90);                /* Near white — card surfaces */
+  --foreground: oklch(0.26 0.045 152);          /* Deep forest — text */
+  --primary-foreground: oklch(0.98 0.015 90);   /* Cream white on green */
+  --muted-foreground: oklch(0.48 0.03 140);    /* Sage gray — secondary text */
+  --border: oklch(0.88 0.028 84);              /* Warm gray — borders */
+  
+  /* Hero/CTA canopy gradient */
+  --gradient-canopy: linear-gradient(155deg, oklch(0.24 0.045 150), oklch(0.36 0.083 155), oklch(0.55 0.11 115));
+  
+  /* Warm shadow */
+  --shadow-warm: 0 24px 60px -28px oklch(0.36 0.083 155 / 0.45);
+}
+
+@layer base {
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: 'Outfit', sans-serif;
+    @apply antialiased selection:bg-[var(--primary)] selection:text-white;
+  }
+
+  h1, h2, h3, h4, .font-serif {
+    font-family: 'Fraunces', Georgia, serif;
+    color: var(--primary);
+  }
+}
+
+.bg-canopy {
+  background: var(--gradient-canopy);
+}
+
+.shadow-warm {
+  box-shadow: var(--shadow-warm);
+}
+
+.bg-background {
+  background-color: #faf6ee !important;
+}
+.bg-background\/95 {
+  background-color: rgba(250, 246, 238, 0.95) !important;
+}
+.bg-secondary\/40 {
+  background-color: #ede5d4 !important;
+}
+.bg-card {
+  background-color: #ffffff !important;
+}
+.bg-primary\/10 {
+  background-color: #d7e8de !important;
+}
+

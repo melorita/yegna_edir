@@ -1,0 +1,14 @@
+# Root .gitignore for YegnaEdir project
+
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+build/
+*.tsbuildinfo
+*.log
+.vite/
+.env
+.env.*
+.DS_Store
+Thumbs.db

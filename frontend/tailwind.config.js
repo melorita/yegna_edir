@@ -11,17 +11,17 @@ export default {
         sans: ['Outfit', 'sans-serif'],
       },
       colors: {
-        background: 'var(--background)',
-        secondary: 'var(--secondary)',
-        card: 'var(--card)',
-        foreground: 'var(--foreground)',
+        background: 'oklch(0.968 0.021 78 / <alpha-value>)',
+        secondary: 'oklch(0.93 0.035 85 / <alpha-value>)',
+        card: 'oklch(0.99 0.008 90 / <alpha-value>)',
+        foreground: 'oklch(0.26 0.045 152 / <alpha-value>)',
         primary: {
-          DEFAULT: 'var(--primary)',
-          foreground: 'var(--primary-foreground)',
+          DEFAULT: 'oklch(0.36 0.083 155 / <alpha-value>)',
+          foreground: 'oklch(0.98 0.015 90 / <alpha-value>)',
         },
-        accent: 'var(--accent)',
-        mutedForeground: 'var(--muted-foreground)',
-        borderToken: 'var(--border)',
+        accent: 'oklch(0.76 0.145 78 / <alpha-value>)',
+        mutedForeground: 'oklch(0.48 0.03 140 / <alpha-value>)',
+        borderToken: 'oklch(0.88 0.028 84 / <alpha-value>)',
       },
       borderRadius: {
         'xl': '0.75rem',      // Logo image: rounded-xl & Buttons: 0.75rem
