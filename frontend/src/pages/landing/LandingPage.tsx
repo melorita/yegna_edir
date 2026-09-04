@@ -16,6 +16,8 @@ import {
   Banknote
 } from 'lucide-react';
 
+import { NavBar } from '../../components/NavBar';
+
 interface LandingPageProps {
   onNavigateToAuth: (mode: 'REGISTER' | 'LOGIN') => void;
   onNavigateToTerms?: () => void;
@@ -26,45 +28,8 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigateToAuth, onNa
     <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)] font-sans selection:bg-[var(--primary)] selection:text-white">
 
       {/* ================= 1. HEADER / NAVBAR ================= */}
-      <header className="sticky top-0 z-40 bg-[var(--background)]/95 backdrop-blur-md border-b border-[var(--border)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          
-          {/* Logo & Wordmark */}
-          <div
-            className="flex items-center gap-2.5 cursor-pointer"
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          >
-            <img src="/logo.jpg" alt="YegnaEdir Logo" className="w-8 h-8 object-contain rounded-xl" />
-            <span className="text-xl font-serif font-bold text-[var(--primary)] tracking-tight">
-              YegnaEdir
-            </span>
-          </div>
+      <NavBar onNavigateToAuth={onNavigateToAuth} onNavigateToTerms={onNavigateToTerms} />
 
-          {/* Nav links */}
-          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-[var(--foreground)]/80">
-            <a href="#home" className="hover:text-[var(--primary)] transition-colors">Home</a>
-            <a href="#features" className="hover:text-[var(--primary)] transition-colors">Features</a>
-            <a href="#how-it-works" className="hover:text-[var(--primary)] transition-colors">How It Works</a>
-            <a href="#about" className="hover:text-[var(--primary)] transition-colors">About Our Edir</a>
-            <button
-              onClick={onNavigateToTerms}
-              className="hover:text-[var(--primary)] font-semibold transition-colors cursor-pointer"
-            >
-              Terms
-            </button>
-          </nav>
-
-          {/* Sign In Button */}
-          <div>
-            <button
-              onClick={() => onNavigateToAuth('LOGIN')}
-              className="text-sm font-medium rounded-[0.75rem] px-5 py-2.5 bg-[var(--primary)] text-[var(--primary-foreground)] hover:opacity-95 shadow-sm transition-all cursor-pointer"
-            >
-              Sign In
-            </button>
-          </div>
-        </div>
-      </header>
 
       {/* ================= 2. HERO SECTION ================= */}
       <section id="home" className="pt-10 pb-16 lg:pt-16 lg:pb-24">

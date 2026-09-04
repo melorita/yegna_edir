@@ -6,6 +6,8 @@ import {
   Check
 } from 'lucide-react';
 
+import { NavBar } from '../../components/NavBar';
+
 interface TermsPageProps {
   onNavigateHome: () => void;
   onNavigateToAuth: (mode: 'REGISTER' | 'LOGIN') => void;
@@ -170,76 +172,23 @@ export const TermsPage: React.FC<TermsPageProps> = ({
       if (el) {
         el.scrollIntoView({ behavior: 'smooth' });
       }
-    }, 100);
+    }, 0);
   };
 
   return (
-    <div className="min-h-screen bg-background text-[var(--foreground)] font-sans selection:bg-[var(--primary)] selection:text-white flex flex-col">
+    <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)] font-sans selection:bg-[var(--primary)] selection:text-white flex flex-col">
       {/* ================= 1. STICKY HEADER ================= */}
-      <header className="sticky top-0 z-40 bg-background/95 backdrop-blur border-b border-[var(--border)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          {/* Logo & Wordmark */}
-          <div
-            className="flex items-center gap-2.5 cursor-pointer"
-            onClick={onNavigateHome}
-          >
-            <img src="/logo.jpg" alt="YegnaEdir Logo" className="w-8 h-8 object-contain rounded-xl" />
-            <span className="text-xl font-serif font-bold text-[var(--primary)] tracking-tight">
-              YegnaEdir
-            </span>
-          </div>
-
-          {/* Nav links */}
-          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-[var(--foreground)]/80">
-            <button
-              onClick={onNavigateHome}
-              className="hover:text-[var(--primary)] transition-colors cursor-pointer"
-            >
-              Home
-            </button>
-            <button
-              onClick={() => handleNavToSection('features')}
-              className="hover:text-[var(--primary)] transition-colors cursor-pointer"
-            >
-              Features
-            </button>
-            <button
-              onClick={() => handleNavToSection('how-it-works')}
-              className="hover:text-[var(--primary)] transition-colors cursor-pointer"
-            >
-              How It Works
-            </button>
-            <button
-              onClick={() => handleNavToSection('about')}
-              className="hover:text-[var(--primary)] transition-colors cursor-pointer"
-            >
-              About Our Edir
-            </button>
-            <button
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="hover:text-[var(--primary)] font-semibold text-[var(--primary)] transition-colors cursor-pointer"
-            >
-              Terms
-            </button>
-          </nav>
-
-          {/* Sign In Button */}
-          <div>
-            <button
-              onClick={() => onNavigateToAuth('LOGIN')}
-              className="text-sm font-medium rounded-[0.75rem] px-5 py-2.5 bg-[var(--primary)] text-[var(--primary-foreground)] hover:opacity-95 shadow-sm transition-all cursor-pointer"
-            >
-              Sign In
-            </button>
-          </div>
-        </div>
-      </header>
+      <NavBar 
+        onNavigateToAuth={onNavigateToAuth} 
+        onNavigateToTerms={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
+        onNavigateHome={onNavigateHome}
+      />
 
       {/* ================= 2. HERO HEADER (bg-secondary/40) ================= */}
       <section className="bg-secondary/40 border-b border-[var(--border)] pt-14 pb-12 sm:pt-16 sm:pb-16 text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          {/* Scroll / Document Icon (bg-primary/10) */}
-          <div className="w-12 h-12 rounded-2xl bg-primary/10 text-[var(--primary)] flex items-center justify-center mx-auto mb-5 shadow-xs">
+          {/* Scroll / Document Icon (bg-[oklch(0.36_0.083_155_/_0.1)]) */}
+          <div className="w-12 h-12 rounded-2xl bg-[oklch(0.36_0.083_155_/_0.1)] text-[var(--primary)] flex items-center justify-center mx-auto mb-5 shadow-xs">
             <FileText className="w-6 h-6 text-[var(--primary)]" strokeWidth={1.8} />
           </div>
 
@@ -265,7 +214,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           {/* Section Header */}
           <div className="flex items-center gap-3.5 mb-6">
-            <div className="w-10 h-10 rounded-xl bg-primary/10 text-[var(--primary)] flex items-center justify-center shrink-0">
+            <div className="w-10 h-10 rounded-xl bg-[oklch(0.36_0.083_155_/_0.1)] text-[var(--primary)] flex items-center justify-center shrink-0">
               <Users className="w-5 h-5 text-[var(--primary)]" strokeWidth={1.8} />
             </div>
             <div>
@@ -286,7 +235,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({
                 className="p-6 sm:p-7 rounded-2xl bg-card border border-[var(--border)] shadow-xs"
               >
                 <div className="flex items-center gap-3.5 mb-3">
-                  <div className="w-8 h-8 rounded-full bg-primary/10 text-[var(--primary)] font-bold text-sm flex items-center justify-center shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-[oklch(0.36_0.083_155_/_0.1)] text-[var(--primary)] font-bold text-sm flex items-center justify-center shrink-0">
                     {rule.number}
                   </div>
                   <h3 className="text-lg sm:text-xl font-serif font-normal text-[var(--primary)]">
@@ -307,7 +256,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           {/* Section Header */}
           <div className="flex items-center gap-3.5 mb-6">
-            <div className="w-10 h-10 rounded-xl bg-primary/10 text-[var(--primary)] flex items-center justify-center shrink-0">
+            <div className="w-10 h-10 rounded-xl bg-[oklch(0.36_0.083_155_/_0.1)] text-[var(--primary)] flex items-center justify-center shrink-0">
               <Heart className="w-5 h-5 text-[var(--primary)]" strokeWidth={1.8} />
             </div>
             <div>
@@ -328,7 +277,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({
                 className="p-6 sm:p-7 rounded-2xl bg-card border border-[var(--border)] shadow-xs"
               >
                 <div className="flex items-center gap-3.5 mb-3">
-                  <div className="w-8 h-8 rounded-full bg-primary/10 text-[var(--primary)] font-bold text-sm flex items-center justify-center shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-[oklch(0.36_0.083_155_/_0.1)] text-[var(--primary)] font-bold text-sm flex items-center justify-center shrink-0">
                     {rule.number}
                   </div>
                   <h3 className="text-lg sm:text-xl font-serif font-normal text-[var(--primary)]">
