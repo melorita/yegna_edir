@@ -47,15 +47,15 @@ export const ContributionsPage: React.FC = () => {
 
           {/* Month Pills */}
           <div className="flex flex-wrap gap-2">
-            {/* Paid months - Green background */}
-            <div className="px-4 py-2 rounded-lg bg-emerald-100 text-emerald-800 text-sm font-medium">Jan</div>
-            <div className="px-4 py-2 rounded-lg bg-emerald-100 text-emerald-800 text-sm font-medium">Feb</div>
-            <div className="px-4 py-2 rounded-lg bg-emerald-100 text-emerald-800 text-sm font-medium">Mar</div>
-            <div className="px-4 py-2 rounded-lg bg-emerald-100 text-emerald-800 text-sm font-medium">Apr</div>
-            <div className="px-4 py-2 rounded-lg bg-emerald-100 text-emerald-800 text-sm font-medium">May</div>
-            <div className="px-4 py-2 rounded-lg bg-emerald-100 text-emerald-800 text-sm font-medium">Jun</div>
-            <div className="px-4 py-2 rounded-lg bg-emerald-100 text-emerald-800 text-sm font-medium">Jul</div>
-            <div className="px-4 py-2 rounded-lg bg-emerald-100 text-emerald-800 text-sm font-medium">Aug</div>
+            {/* Paid months - Light grayish-green background */}
+            <div className="px-4 py-2 rounded-lg bg-[#d9e5e0] text-[var(--primary)] text-sm font-medium">Jan</div>
+            <div className="px-4 py-2 rounded-lg bg-[#d9e5e0] text-[var(--primary)] text-sm font-medium">Feb</div>
+            <div className="px-4 py-2 rounded-lg bg-[#d9e5e0] text-[var(--primary)] text-sm font-medium">Mar</div>
+            <div className="px-4 py-2 rounded-lg bg-[#d9e5e0] text-[var(--primary)] text-sm font-medium">Apr</div>
+            <div className="px-4 py-2 rounded-lg bg-[#d9e5e0] text-[var(--primary)] text-sm font-medium">May</div>
+            <div className="px-4 py-2 rounded-lg bg-[#d9e5e0] text-[var(--primary)] text-sm font-medium">Jun</div>
+            <div className="px-4 py-2 rounded-lg bg-[#d9e5e0] text-[var(--primary)] text-sm font-medium">Jul</div>
+            <div className="px-4 py-2 rounded-lg bg-[#d9e5e0] text-[var(--primary)] text-sm font-medium">Aug</div>
 
             {/* Upcoming/Unpaid months - Light background */}
             <div className="px-4 py-2 rounded-lg bg-[var(--background)] text-[var(--muted-foreground)] text-sm font-medium">Sep</div>
@@ -63,46 +63,6 @@ export const ContributionsPage: React.FC = () => {
             <div className="px-4 py-2 rounded-lg bg-[var(--background)] text-[var(--muted-foreground)] text-sm font-medium">Nov</div>
             <div className="px-4 py-2 rounded-lg bg-[var(--background)] text-[var(--muted-foreground)] text-sm font-medium">Dec</div>
           </div>
-        </div>
-
-        {/* Summary Stats */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
-          <div className="p-4 rounded-xl bg-[#f5f0e8] border border-[var(--border)]">
-            <span className="text-xs font-mono text-[var(--muted-foreground)] uppercase block mb-2">
-              2026 Total
-            </span>
-            <div className="text-2xl font-serif font-bold text-[var(--primary)]">800 ETB</div>
-          </div>
-          <div className="p-4 rounded-xl bg-[#f5f0e8] border border-[var(--border)]">
-            <span className="text-xs font-mono text-[var(--muted-foreground)] uppercase block mb-2">
-              Remaining 2026
-            </span>
-            <div className="text-2xl font-serif font-bold text-[var(--primary)]">400 ETB</div>
-          </div>
-          <div className="p-4 rounded-xl bg-[#f5f0e8] border border-[var(--border)]">
-            <span className="text-xs font-mono text-[var(--muted-foreground)] uppercase block mb-2">
-              Lifetime Total
-            </span>
-            <div className="text-2xl font-serif font-bold text-[var(--primary)]">2,100 ETB</div>
-          </div>
-        </div>
-      </div>
-
-      {/* Payment History Link */}
-      <div className="rounded-3xl bg-card border border-[var(--border)] p-6">
-        <div className="flex items-center justify-between">
-          <div>
-            <h3 className="text-lg font-serif font-semibold text-[var(--foreground)] mb-1">Payment History</h3>
-            <p className="text-sm text-[var(--muted-foreground)]">
-              View detailed records of all your contributions and transactions.
-            </p>
-          </div>
-          <button 
-            onClick={() => navigate('/dashboard/payment-history')}
-            className="px-5 py-2.5 rounded-xl bg-secondary/40 text-[var(--foreground)] text-sm font-semibold hover:bg-secondary/60 transition-all"
-          >
-            View history
-          </button>
         </div>
       </div>
     </div>
