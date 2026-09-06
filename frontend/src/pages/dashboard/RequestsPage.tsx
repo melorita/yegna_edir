@@ -1,11 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { CreditCard, Home, ChevronDown } from 'lucide-react';
 
 export const RequestsPage: React.FC = () => {
+  const location = useLocation();
   const [showRequestForm, setShowRequestForm] = useState(false);
   const [requestType, setRequestType] = useState('');
   const [requestDetails, setRequestDetails] = useState('');
   const [showRequestTypeDropdown, setShowRequestTypeDropdown] = useState(false);
+
+  // Automatically open the form if navigated from "Submit a request" button
+  useEffect(() => {
+    if (location.state?.openForm) {
+      setShowRequestForm(true);
+    }
+  }, [location.state]);
 
   const handleSubmitRequest = () => {
     // Submit request logic here
