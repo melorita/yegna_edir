@@ -13,11 +13,16 @@ import {
   Home,
   Menu,
   X,
-  ChevronLeft
+  ChevronLeft,
+  Users,
+  FileText,
+  DollarSign,
+  Package,
+  ShieldCheck
 } from 'lucide-react';
 
 export const DashboardLayout: React.FC = () => {
-  const { currentUser, logout } = useAuth();
+  const { currentUser, roleWorkspace, logout } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -33,6 +38,7 @@ export const DashboardLayout: React.FC = () => {
     .toUpperCase();
   const memberId = currentUser?.memberId || 'YE-0142';
 
+  // Common member navigation items
   const navigationItems = [
     { path: '/dashboard', label: 'Overview', icon: Home },
     { path: '/dashboard/profile', label: 'My Profile', icon: User },
@@ -42,6 +48,27 @@ export const DashboardLayout: React.FC = () => {
     { path: '/dashboard/announcements', label: 'Announcements', icon: Megaphone },
     { path: '/dashboard/attendance', label: 'Attendance', icon: CalendarCheck }
   ];
+
+  // Icon mapping for role workspaces
+  const iconMap: Record<string, React.ComponentType<any>> = {
+    Users,
+    FileText,
+    DollarSign,
+    Package,
+    ShieldCheck
+  };
+
+  // Add role workspace to navigation if user has a special role
+  const allNavigationItems = roleWorkspace
+    ? [
+        ...navigationItems,
+        {
+          path: roleWorkspace.workspacePath,
+          label: roleWorkspace.workspaceLabel,
+          icon: iconMap[roleWorkspace.workspaceIcon] || Users
+        }
+      ]
+    : navigationItems;
 
   const isActiveRoute = (path: string) => {
     if (path === '/dashboard') {
@@ -116,7 +143,7 @@ export const DashboardLayout: React.FC = () => {
 
               {/* Navigation */}
               <nav className="flex-1 space-y-1">
-                {navigationItems.map((item) => {
+                {allNavigationItems.map((item) => {
                   const Icon = item.icon;
                   const isActive = isActiveRoute(item.path);
                   return (
@@ -174,7 +201,7 @@ export const DashboardLayout: React.FC = () => {
               </div>
 
               <nav className="flex-1 space-y-1">
-                {navigationItems.map((item) => {
+                {allNavigationItems.map((item) => {
                   const Icon = item.icon;
                   const isActive = isActiveRoute(item.path);
                   return (
