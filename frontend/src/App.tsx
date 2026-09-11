@@ -4,14 +4,18 @@ import { LandingPage } from './pages/landing/LandingPage';
 import { AuthPage } from './pages/auth/AuthPage';
 import { TermsPage } from './pages/terms/TermsPage';
 import { MemberDashboard } from './pages/dashboard/MemberDashboard';
+import { AdminDashboard } from './pages/admin/AdminDashboard';
 
 const AppContent: React.FC = () => {
   const { currentUser } = useAuth();
-  const [viewState, setViewState] = useState<'LANDING' | 'AUTH' | 'TERMS' | 'DASHBOARD'>(() => {
+  const [viewState, setViewState] = useState<'LANDING' | 'AUTH' | 'TERMS' | 'DASHBOARD' | 'ADMIN'>(() => {
+    if (window.location.pathname.startsWith('/admin')) {
+      return 'ADMIN';
+    }
     if (window.location.pathname === '/terms' || window.location.hash === '#terms') {
       return 'TERMS';
     }
-    if (window.location.pathname === '/dashboard' || window.location.hash === '#dashboard') {
+    if (window.location.pathname.startsWith('/dashboard') || window.location.hash === '#dashboard') {
       return 'DASHBOARD';
     }
     return 'LANDING';
@@ -20,9 +24,11 @@ const AppContent: React.FC = () => {
 
   useEffect(() => {
     const handlePopState = () => {
-      if (window.location.pathname === '/terms' || window.location.hash === '#terms') {
+      if (window.location.pathname.startsWith('/admin')) {
+        setViewState('ADMIN');
+      } else if (window.location.pathname === '/terms' || window.location.hash === '#terms') {
         setViewState('TERMS');
-      } else if (window.location.pathname === '/dashboard' || window.location.hash === '#dashboard') {
+      } else if (window.location.pathname.startsWith('/dashboard') || window.location.hash === '#dashboard') {
         setViewState('DASHBOARD');
       } else if (window.location.pathname === '/auth') {
         setViewState('AUTH');
@@ -34,13 +40,15 @@ const AppContent: React.FC = () => {
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
-  const navigateTo = (view: 'LANDING' | 'AUTH' | 'TERMS' | 'DASHBOARD') => {
+  const navigateTo = (view: 'LANDING' | 'AUTH' | 'TERMS' | 'DASHBOARD' | 'ADMIN') => {
     setViewState(view);
     const path =
       view === 'TERMS'
         ? '/terms'
         : view === 'DASHBOARD'
         ? '/dashboard'
+        : view === 'ADMIN'
+        ? '/admin'
         : view === 'AUTH'
         ? '/auth'
         : '/';
@@ -54,6 +62,10 @@ const AppContent: React.FC = () => {
 
   if (currentUser || viewState === 'DASHBOARD') {
     return <MemberDashboard />;
+  }
+
+  if (viewState === 'ADMIN') {
+    return <AdminDashboard />;
   }
 
   if (viewState === 'AUTH') {
