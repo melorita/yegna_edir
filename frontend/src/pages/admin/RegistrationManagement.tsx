@@ -244,7 +244,7 @@ export const RegistrationManagement: React.FC = () => {
                       {registration.status.charAt(0).toUpperCase() + registration.status.slice(1)}
                     </span>
                     {registration.faydaVerified && (
-                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-medium bg-blue-100 text-blue-700 border border-blue-200">
+                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-medium bg-[oklch(0.36_0.083_155_/_0.1)] text-[var(--primary)] border border-blue-200">
                         <Shield className="w-3 h-3" />
                         Fayda {registration.faydaScore}%
                       </span>
@@ -383,7 +383,7 @@ export const RegistrationManagement: React.FC = () => {
                     </div>
                     <div className="h-2 bg-blue-200 rounded-full overflow-hidden">
                       <div
-                        className="h-full bg-blue-600 rounded-full"
+                        className="h-full text-[var(--primary)] rounded-full"
                         style={{ width: `${selectedRegistration.faydaScore}%` }}
                       />
                     </div>
@@ -489,3 +489,4 @@ export const RegistrationManagement: React.FC = () => {
     </div>
   );
 };
+

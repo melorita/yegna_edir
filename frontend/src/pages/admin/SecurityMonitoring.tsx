@@ -202,15 +202,15 @@ export const SecurityMonitoring: React.FC = () => {
         </div>
         <ul className="space-y-2 text-sm text-blue-900">
           <li className="flex items-start gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-1.5"></span>
+            <span className="w-1.5 h-1.5 rounded-full text-[var(--primary)] mt-1.5"></span>
             Enable two-factor authentication for all committee members
           </li>
           <li className="flex items-start gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-1.5"></span>
+            <span className="w-1.5 h-1.5 rounded-full text-[var(--primary)] mt-1.5"></span>
             Review and update password policies (minimum 12 characters)
           </li>
           <li className="flex items-start gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-1.5"></span>
+            <span className="w-1.5 h-1.5 rounded-full text-[var(--primary)] mt-1.5"></span>
             Set up automated security alerts for suspicious activities
           </li>
         </ul>
