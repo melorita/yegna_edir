@@ -109,7 +109,7 @@ export const CommitteeManagement: React.FC = () => {
       case 'Chairperson':
         return 'bg-purple-100 text-purple-700 border-purple-200';
       case 'Secretary':
-        return 'bg-blue-100 text-blue-700 border-blue-200';
+        return 'bg-[oklch(0.36_0.083_155_/_0.1)] text-[var(--primary)] border-blue-200';
       case 'Treasurer':
         return 'bg-emerald-100 text-emerald-700 border-emerald-200';
       case 'Inventory Officer':
@@ -346,3 +346,4 @@ export const CommitteeManagement: React.FC = () => {
     </div>
   );
 };
+

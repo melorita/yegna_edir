@@ -25,7 +25,7 @@ export const RolesPermissions: React.FC = () => {
       name: 'Committee Member',
       description: 'Operational management and member oversight',
       userCount: 8,
-      color: 'bg-blue-100 text-blue-700 border-blue-200'
+      color: 'bg-[oklch(0.36_0.083_155_/_0.1)] text-[var(--primary)] border-blue-200'
     },
     {
       id: 'member',
