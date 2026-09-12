@@ -46,7 +46,7 @@ export const AdminOverview: React.FC = () => {
             <span className="text-xs font-mono text-[var(--muted-foreground)] uppercase">
               Total Members
             </span>
-            <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-[oklch(0.36_0.083_155_/_0.1)] text-[var(--primary)] flex items-center justify-center">
               <Users className="w-5 h-5" />
             </div>
           </div>
@@ -492,3 +492,4 @@ export const AdminOverview: React.FC = () => {
     </div>
   );
 };
+
