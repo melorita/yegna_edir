@@ -76,7 +76,7 @@ export const SystemNotifications: React.FC = () => {
       case 'success':
         return 'bg-emerald-100 text-emerald-700 border-emerald-200';
       default:
-        return 'bg-blue-100 text-blue-700 border-blue-200';
+        return 'bg-[oklch(0.36_0.083_155_/_0.1)] text-[var(--primary)] border-blue-200';
     }
   };
 
@@ -314,3 +314,4 @@ export const SystemNotifications: React.FC = () => {
     </div>
   );
 };
+
