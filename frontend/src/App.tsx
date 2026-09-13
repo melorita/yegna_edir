@@ -6,12 +6,16 @@ import { TermsPage } from './pages/terms/TermsPage';
 import { MemberDashboard } from './pages/dashboard/MemberDashboard';
 import { AdminDashboard } from './pages/admin/AdminDashboard';
 import { MembershipPaymentPage } from './pages/payment/MembershipPaymentPage';
+import { MonthlyContributionPage } from './pages/payment/MonthlyContributionPage';
 
 const AppContent: React.FC = () => {
   const { currentUser } = useAuth();
-  const [viewState, setViewState] = useState<'LANDING' | 'AUTH' | 'TERMS' | 'DASHBOARD' | 'ADMIN' | 'PAYMENT'>(() => {
+  const [viewState, setViewState] = useState<'LANDING' | 'AUTH' | 'TERMS' | 'DASHBOARD' | 'ADMIN' | 'PAYMENT' | 'CONTRIBUTION'>(() => {
     if (window.location.pathname.startsWith('/admin')) {
       return 'ADMIN';
+    }
+    if (window.location.pathname === '/contribution' || window.location.hash === '#contribution') {
+      return 'CONTRIBUTION';
     }
     if (window.location.pathname === '/payment' || window.location.hash === '#payment') {
       return 'PAYMENT';
@@ -30,6 +34,8 @@ const AppContent: React.FC = () => {
     const handlePopState = () => {
       if (window.location.pathname.startsWith('/admin')) {
         setViewState('ADMIN');
+      } else if (window.location.pathname === '/contribution' || window.location.hash === '#contribution') {
+        setViewState('CONTRIBUTION');
       } else if (window.location.pathname === '/payment' || window.location.hash === '#payment') {
         setViewState('PAYMENT');
       } else if (window.location.pathname === '/terms' || window.location.hash === '#terms') {
@@ -46,7 +52,7 @@ const AppContent: React.FC = () => {
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
-  const navigateTo = (view: 'LANDING' | 'AUTH' | 'TERMS' | 'DASHBOARD' | 'ADMIN' | 'PAYMENT') => {
+  const navigateTo = (view: 'LANDING' | 'AUTH' | 'TERMS' | 'DASHBOARD' | 'ADMIN' | 'PAYMENT' | 'CONTRIBUTION') => {
     setViewState(view);
     const path =
       view === 'TERMS'
@@ -57,6 +63,8 @@ const AppContent: React.FC = () => {
         ? '/admin'
         : view === 'PAYMENT'
         ? '/payment'
+        : view === 'CONTRIBUTION'
+        ? '/contribution'
         : view === 'AUTH'
         ? '/auth'
         : '/';
@@ -78,6 +86,10 @@ const AppContent: React.FC = () => {
 
   if (viewState === 'PAYMENT') {
     return <MembershipPaymentPage />;
+  }
+
+  if (viewState === 'CONTRIBUTION') {
+    return <MonthlyContributionPage />;
   }
 
   if (viewState === 'AUTH') {
