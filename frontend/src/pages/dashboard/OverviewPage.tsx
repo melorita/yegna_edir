@@ -20,7 +20,10 @@ export const OverviewPage: React.FC = () => {
             our neighborhood Edir.
           </p>
           <div className="flex flex-wrap gap-3">
-            <button className="px-5 py-2.5 rounded-lg bg-[var(--accent)] text-[var(--primary)] text-sm font-semibold hover:opacity-90 transition-all">
+            <button 
+              onClick={() => navigate('/contribution')}
+              className="px-5 py-2.5 rounded-lg bg-[var(--accent)] text-[var(--primary)] text-sm font-semibold hover:opacity-90 transition-all"
+            >
               Pay this month
             </button>
             <button 
