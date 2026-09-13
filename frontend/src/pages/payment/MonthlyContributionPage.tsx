@@ -80,39 +80,6 @@ export const MonthlyContributionPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Payment Summary */}
-          <div className="rounded-2xl bg-card border border-[var(--border)] p-6 shadow-sm">
-            <h3 className="text-lg font-serif font-semibold text-[var(--foreground)] mb-4">
-              Payment Summary
-            </h3>
-
-            <div className="space-y-3">
-              <div className="flex items-center justify-between p-3 rounded-xl bg-[#f5f0e8] border border-[var(--border)]">
-                <span className="text-sm text-[var(--muted-foreground)]">Contribution</span>
-                <span className="text-sm font-semibold text-[var(--foreground)]">{contributionAmount} ETB</span>
-              </div>
-
-              <div className="flex items-center justify-between p-3 rounded-xl bg-[#f5f0e8] border border-[var(--border)]">
-                <span className="text-sm text-[var(--muted-foreground)]">Frequency</span>
-                <span className="text-sm font-semibold text-[var(--foreground)]">Monthly</span>
-              </div>
-
-              <div className="flex items-center justify-between p-3 rounded-xl bg-[#f5f0e8] border border-[var(--border)]">
-                <span className="text-sm text-[var(--muted-foreground)]">Method</span>
-                <span className="text-sm font-semibold text-[var(--foreground)]">Chapa</span>
-              </div>
-            </div>
-
-            <div className="mt-6 p-5 rounded-2xl bg-[var(--primary)]/5 border-2 border-[var(--primary)]/20">
-              <div className="flex items-center justify-between">
-                <span className="text-lg font-serif font-bold text-[var(--foreground)]">Total</span>
-                <span className="text-2xl sm:text-3xl font-serif font-bold text-[var(--primary)]">
-                  {contributionAmount} ETB
-                </span>
-              </div>
-            </div>
-          </div>
-
           {/* Chapa Payment Button */}
           <div className="rounded-2xl bg-card border border-[var(--border)] p-6 shadow-sm">
             <div className="flex items-center gap-3 mb-4">
