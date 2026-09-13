@@ -8,6 +8,7 @@ import { PaymentHistoryPage } from './PaymentHistoryPage';
 import { RequestsPage } from './RequestsPage';
 import { AttendancePage } from './AttendancePage';
 import { AnnouncementsPage } from './AnnouncementsPage';
+import { MonthlyContributionPage } from '../payment/MonthlyContributionPage';
 import {
   ChairpersonWorkspace,
   SecretaryWorkspace,
@@ -62,6 +63,10 @@ export const MemberDashboard: React.FC = () => {
           <Route path="workspace/inventory" element={<InventoryWorkspace />} />
           <Route path="workspace/audit" element={<AuditWorkspace />} />
         </Route>
+        
+        {/* Monthly Contribution Payment - Outside dashboard layout */}
+        <Route path="/contribution" element={<MonthlyContributionPage />} />
+        
         {/* Redirect any other path to dashboard overview */}
         <Route path="*" element={<Navigate to="/dashboard" replace />} />
       </Routes>
