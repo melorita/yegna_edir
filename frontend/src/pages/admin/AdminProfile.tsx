@@ -9,7 +9,8 @@ import {
   Lock,
   Save,
   Edit,
-  Camera
+  Camera,
+  X
 } from 'lucide-react';
 
 export const AdminProfile: React.FC = () => {
