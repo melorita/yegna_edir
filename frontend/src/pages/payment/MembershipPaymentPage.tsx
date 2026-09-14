@@ -137,44 +137,6 @@ export const MembershipPaymentPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Payment Summary Card */}
-          <div className="rounded-3xl bg-card border border-[var(--border)] p-8 shadow-sm">
-            <h3 className="text-xl font-serif font-bold text-[var(--foreground)] mb-6">
-              Payment Summary
-            </h3>
-            
-            <div className="space-y-3 mb-6">
-              <div className="flex items-center justify-between p-4 rounded-xl bg-[#f5f0e8] border border-[var(--border)]">
-                <span className="text-sm text-[var(--muted-foreground)]">Membership status</span>
-                <span className="text-sm font-semibold text-emerald-700">Approved</span>
-              </div>
-              
-              <div className="flex items-center justify-between p-4 rounded-xl bg-[#f5f0e8] border border-[var(--border)]">
-                <span className="text-sm text-[var(--muted-foreground)]">Payment type</span>
-                <span className="text-sm font-semibold text-[var(--foreground)]">One-time joining fee</span>
-              </div>
-              
-              <div className="flex items-center justify-between p-4 rounded-xl bg-[#f5f0e8] border border-[var(--border)]">
-                <span className="text-sm text-[var(--muted-foreground)]">Payment provider</span>
-                <span className="text-sm font-semibold text-[var(--foreground)]">Chapa</span>
-              </div>
-              
-              <div className="flex items-center justify-between p-4 rounded-xl bg-[#f5f0e8] border border-[var(--border)]">
-                <span className="text-sm text-[var(--muted-foreground)]">Amount</span>
-                <span className="text-sm font-semibold text-[var(--foreground)]">{joiningFee.toLocaleString()} ETB</span>
-              </div>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-[var(--primary)]/5 border-2 border-[var(--primary)]/20">
-              <div className="flex items-center justify-between">
-                <span className="text-xl font-serif font-bold text-[var(--foreground)]">Total</span>
-                <span className="text-3xl font-serif font-bold text-[var(--primary)]">
-                  {joiningFee.toLocaleString()} ETB
-                </span>
-              </div>
-            </div>
-          </div>
-
           {/* Chapa Payment Card */}
           <div className="rounded-3xl bg-card border border-[var(--border)] p-8 shadow-sm">
             <div className="flex items-center gap-4 mb-6">
