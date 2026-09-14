@@ -14,7 +14,8 @@ import {
   LogOut,
   AlertTriangle,
   ClipboardList,
-  Building2
+  Building2,
+  User
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 
@@ -40,10 +41,10 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({ currentView, onNavigat
   // Admin navigation structure
   const navigationItems = [
     { id: 'overview', label: 'Dashboard', icon: LayoutDashboard, section: 'main' },
+    { id: 'profile', label: 'My Profile', icon: User, section: 'main' },
     { id: 'users', label: 'All Users', icon: Users, section: 'users' },
     { id: 'registrations', label: 'Registrations', icon: ClipboardList, section: 'users' },
     { id: 'committee', label: 'Committee', icon: UserCog, section: 'users' },
-    { id: 'roles', label: 'Roles & Permissions', icon: Shield, section: 'access' },
     { id: 'edir-config', label: 'Edir Configuration', icon: Building2, section: 'edir' },
     { id: 'audit-logs', label: 'Audit Logs', icon: FileText, section: 'monitoring' },
     { id: 'security', label: 'Security', icon: AlertTriangle, section: 'monitoring' },
@@ -55,7 +56,6 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({ currentView, onNavigat
   const sections = [
     { id: 'main', label: '' },
     { id: 'users', label: 'User Management' },
-    { id: 'access', label: 'Access Control' },
     { id: 'edir', label: 'Edir Configuration' },
     { id: 'monitoring', label: 'Monitoring' },
     { id: 'communication', label: 'Communication' },
