@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { AdminLayout } from '../../components/admin/AdminLayout';
 import { AdminOverview } from './AdminOverview';
+import { AdminProfile } from './AdminProfile';
 import { UserManagement } from './UserManagement';
 import { CommitteeManagement } from './CommitteeManagement';
 import { RegistrationManagement } from './RegistrationManagement';
-import { RolesPermissions } from './RolesPermissions';
 import { EdirConfiguration } from './EdirConfiguration';
 import { AuditLogs } from './AuditLogs';
 import { SecurityMonitoring } from './SecurityMonitoring';
@@ -18,14 +18,14 @@ export const AdminDashboard: React.FC = () => {
     switch (currentView) {
       case 'overview':
         return <AdminOverview />;
+      case 'profile':
+        return <AdminProfile />;
       case 'users':
         return <UserManagement />;
       case 'registrations':
         return <RegistrationManagement />;
       case 'committee':
         return <CommitteeManagement />;
-      case 'roles':
-        return <RolesPermissions />;
       case 'edir-config':
         return <EdirConfiguration />;
       case 'audit-logs':
