@@ -36,8 +36,6 @@ export const AdminDashboard: React.FC = () => {
         return <SystemNotifications />;
       case 'reports':
         return <PlatformReports />;
-      case 'settings':
-        return <EdirConfiguration />;
       default:
         return <AdminOverview />;
     }
