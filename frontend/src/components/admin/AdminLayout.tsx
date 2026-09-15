@@ -102,7 +102,10 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({ currentView, onNavigat
 
           {/* Right: Notifications + Admin info */}
           <div className="flex items-center gap-4">
-            <button className="relative p-2 rounded-lg hover:bg-secondary/40 transition-colors">
+            <button 
+              onClick={() => onNavigate('notifications')}
+              className="relative p-2 rounded-lg hover:bg-secondary/40 transition-colors"
+            >
               <Bell className="w-5 h-5 text-[var(--primary)]" />
               <span className="absolute top-1 right-1 w-2 h-2 bg-rose-500 rounded-full" />
             </button>
