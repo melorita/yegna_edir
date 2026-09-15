@@ -10,9 +10,6 @@ export const AuditWorkspace: React.FC = () => {
       {/* Page Header */}
       <div>
         <h2 className="text-2xl font-serif font-bold text-[var(--primary)] mb-1">Audit Center</h2>
-        <p className="text-sm text-[var(--muted-foreground)]">
-          Review financial records, verify transactions, and ensure Edir compliance.
-        </p>
       </div>
 
       {/* Tabs Navigation */}
