@@ -12,9 +12,6 @@ export const SecretaryWorkspace: React.FC = () => {
       {/* Page Header */}
       <div>
         <h2 className="text-2xl font-serif font-bold text-[var(--primary)] mb-1">Secretary Workspace</h2>
-        <p className="text-sm text-[var(--muted-foreground)]">
-          Manage member records, meeting minutes, and communications.
-        </p>
       </div>
 
       {/* Tabs Navigation */}
