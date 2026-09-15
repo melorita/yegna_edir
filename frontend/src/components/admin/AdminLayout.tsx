@@ -49,8 +49,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({ currentView, onNavigat
     { id: 'audit-logs', label: 'Audit Logs', icon: FileText, section: 'monitoring' },
     { id: 'security', label: 'Security', icon: AlertTriangle, section: 'monitoring' },
     { id: 'notifications', label: 'Notifications', icon: Bell, section: 'communication' },
-    { id: 'reports', label: 'Platform Reports', icon: FileText, section: 'reports' },
-    { id: 'settings', label: 'System Settings', icon: SettingsIcon, section: 'settings' }
+    { id: 'reports', label: 'Platform Reports', icon: FileText, section: 'reports' }
   ];
 
   const sections = [
@@ -59,8 +58,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({ currentView, onNavigat
     { id: 'edir', label: 'Edir Configuration' },
     { id: 'monitoring', label: 'Monitoring' },
     { id: 'communication', label: 'Communication' },
-    { id: 'reports', label: 'Reports' },
-    { id: 'settings', label: 'Settings' }
+    { id: 'reports', label: 'Reports' }
   ];
 
   const handleLogout = () => {
